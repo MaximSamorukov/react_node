@@ -1,7 +1,12 @@
 const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 const app = express();
 
-app.get('/', (req, res) => {
+passport.use(new GoogleStrategy());
+
+app.get('/auth', (req, res) => {
   res.send({ hi: 'there'});
 });
 
