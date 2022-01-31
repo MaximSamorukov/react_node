@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-
+import Payments from "./Payments";
 class Header extends Component {
   renderContent() {
     const { auth } = this.props;
@@ -17,25 +17,17 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <>
-            <li>
-              <a href="">
-                Add Credits
-              </a>
-            </li>
-            <li>
-              <a href="">
-                Credits
-              </a>
-            </li>
-            <li>
-              <a href="/api/logout">
-                Logout
-              </a>
-            </li>
-          </>
-        );
+        return [
+          <li key="key_1"><Payments /></li>,
+          <li key="key_2">
+            <a href="/api/logout">
+              Logout
+            </a>
+          </li>,
+        ]
+
+
+
     }
   }
   render() {
